@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import Show from '../show/Show';
 const WeatherAPI = () => {
   const [loading, setLoading] = useState(true);
   const [Weather, setWeather] = useState([]);
@@ -21,7 +21,7 @@ const WeatherAPI = () => {
           <h1>Loading..</h1>
           :
 
-          <h2>Loading ok</h2>
+          <Show Weather={Weather} />
 
       }
     </>);
