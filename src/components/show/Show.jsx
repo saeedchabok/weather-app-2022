@@ -3,19 +3,7 @@ import { Card } from 'react-bootstrap'
 
 const Show = ({ Weather }) => {
     return (
-        //         <Card style={{ width: '18rem' }}>
-        //   <Card.Img variant="top" src="holder.js/100px180" />
-        //   <Card.Body>
-        //    
-        //     <Card.Text>
-        //       Some quick example text to build on the card title and make up the bulk of
-        //       the card's content.
-        //     </Card.Text>
-        //     <Button variant="primary">Go somewhere</Button>
-        //   </Card.Body>
-        // </Card>
-
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem', height: '42.5rem' }}>
             <Card.Body>
                 <Card.Header>
                     <Card.Title>
@@ -42,19 +30,49 @@ const Show = ({ Weather }) => {
                             return <p style={{ display: 'flex', gap: '15px', alignItems: 'center' }} key={index}>&nbsp;&nbsp; {time.temp_c}&nbsp;&nbsp;<img key={index} src={time.condition.icon} alt='icon' />&nbsp;&nbsp;{time.condition.text} </p>
 
                         })}  </div>
-                    <p>{Weather.current.feelslike_c}</p>
-                    <p>{Weather.current.wind_kph}</p>
-                    <p>{Weather.current.wind_dir}</p>
-                    <p> </p>
-                    <p>{Weather.current.humidity}</p>
-                    <p>{Weather.current.is_day}</p>
-                    <p>{Weather.current.pressure_in}</p>
-                    <p>{Weather.forecast.forecastday[0].astro.sunrise}</p>
-                    <p>{Weather.forecast.forecastday[0].astro.sunset}</p>
-                    <p>{Weather.forecast.forecastday[0].day.maxtemp_c}</p>
-                    <p>{Weather.forecast.forecastday[0].day.mintemp_c}</p>
-
-
+                    <div className='info'>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>feelslike</Card.Title></Card.Header>
+                    <Card.Text>{Weather.current.feelslike_c}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>wind</Card.Title></Card.Header>
+                    <Card.Text>{Weather.current.wind_kph}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>Wind&nbsp;dir</Card.Title></Card.Header>
+                    <Card.Text>{Weather.current.wind_dir}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>humidity</Card.Title></Card.Header>
+                    <Card.Text>{Weather.current.humidity}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>current</Card.Title></Card.Header>
+                    <Card.Text>{Weather.current.is_day === 0 ? 'night' : 'day'}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>pressure</Card.Title></Card.Header>
+                    <Card.Text>{Weather.current.pressure_in}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>sunrise</Card.Title></Card.Header>
+                    <Card.Text>{Weather.forecast.forecastday[0].astro.sunrise}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>sunset</Card.Title></Card.Header>
+                    <Card.Text>{Weather.forecast.forecastday[0].astro.sunset}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>maxtemp</Card.Title></Card.Header>
+                    <Card.Text>{Weather.forecast.forecastday[0].day.maxtemp_c}</Card.Text>
+                    </Card>
+                    <Card style={{ width: '7.5rem' }}> 
+                    <Card.Header><Card.Title>mintemp</Card.Title></Card.Header>
+                    <Card.Text>{Weather.forecast.forecastday[0].day.mintemp_c}</Card.Text>
+                    </Card>
+                    </div>
+                   
                 </Card.Text>
             </Card.Body>
         </Card>);

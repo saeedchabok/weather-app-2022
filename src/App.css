@@ -1,0 +1,21 @@
+.card-text
+{
+    text-align: center;
+}
+.info
+{
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.info .card-title
+{
+    font-size: 1rem;
+}
+.info .card
+{
+    box-shadow: 0px 3px 15px 3px #e1e1e1;
+}
