@@ -1,3 +1,9 @@
+div
+{
+    background-color: transparent !important;
+    color: white;
+
+}
 .card-text
 {
     text-align: center;
@@ -14,8 +20,28 @@
 .info .card-title
 {
     font-size: 1rem;
+
 }
 .info .card
 {
     box-shadow: 0px 3px 15px 3px #e1e1e1;
+}
+.styleMainCardTitle
+{
+    text-align: center;
+}
+.date 
+{
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+.container 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url(https://picsum.photos/200/300) no-repeat;
+    background-size: cover;
+    background-position:center center ;
 }

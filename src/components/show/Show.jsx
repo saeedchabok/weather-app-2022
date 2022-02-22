@@ -1,12 +1,22 @@
 import React from 'react';
-import { Card } from 'react-bootstrap'
+import { Card, CardImg, Container } from 'react-bootstrap';
+import moment from 'moment';
+import Moment from 'react-moment';
 
 const Show = ({ Weather }) => {
+    const CurrentDate = () => {
+        const currentDateTime = moment()
+        return (
+            <Moment format='D MMM YYYY'>{currentDateTime}</Moment>
+        )
+    } 
     return (
-        <Card style={{ width: '18rem', height: '42.5rem' }}>
+        <Container>
+        <Card style={{ width: '18rem', height: '48.5rem' }}>
             <Card.Body>
                 <Card.Header>
                     <Card.Title>
+                        <div className='styleMainCardTitle'>
                         <span>
                             {Weather.location.name}
                         </span>&nbsp;&nbsp;
@@ -17,9 +27,11 @@ const Show = ({ Weather }) => {
                         <span>
                             {Weather.current.condition.text}
                         </span>
+                        <br />
                         <img src={Weather.current.condition.icon} alt='icon' />
                         <br />
-                        <span>{Weather.current.temp_c}</span>
+                        <span>temp {Weather.current.temp_c}</span>
+                        </div>
                     </Card.Title>
                 </Card.Header>
 
@@ -30,6 +42,7 @@ const Show = ({ Weather }) => {
                             return <p style={{ display: 'flex', gap: '15px', alignItems: 'center' }} key={index}>&nbsp;&nbsp; {time.temp_c}&nbsp;&nbsp;<img key={index} src={time.condition.icon} alt='icon' />&nbsp;&nbsp;{time.condition.text} </p>
 
                         })}  </div>
+                    <p className='date'>{ CurrentDate() }</p>
                     <div className='info'>
                     <Card style={{ width: '7.5rem' }}> 
                     <Card.Header><Card.Title>feelslike</Card.Title></Card.Header>
@@ -75,7 +88,8 @@ const Show = ({ Weather }) => {
                    
                 </Card.Text>
             </Card.Body>
-        </Card>);
+        </Card>
+        </Container>);
 };
 
 export default Show;
