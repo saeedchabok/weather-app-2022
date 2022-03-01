@@ -1,9 +1,4 @@
-div
-{
-    background-color: transparent !important;
-    color: white;
 
-}
 .card-text
 {
     text-align: center;
@@ -35,7 +30,7 @@ div
     margin-top: 1rem;
     margin-bottom: 0;
 }
-.container 
+/* .container 
 {
     display: flex;
     align-items: center;
@@ -44,4 +39,4 @@ div
     background: url(https://picsum.photos/200/300) no-repeat;
     background-size: cover;
     background-position:center center ;
-}
+} */

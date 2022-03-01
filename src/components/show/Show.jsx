@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, Container } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 import moment from 'moment';
 import Moment from 'react-moment';
 
@@ -10,6 +10,14 @@ const Show = ({ Weather }) => {
             <Moment format='D MMM YYYY'>{currentDateTime}</Moment>
         )
     } 
+    const hour = (input) => 
+    {
+        return (
+            <Moment format="HH">{input}</Moment>
+        )
+    } 
+    const currentDateTime = moment()
+    console.log('ggg',hour(new Date()))
     return (
         <Container>
         <Card style={{ width: '18rem', height: '48.5rem' }}>
@@ -36,10 +44,19 @@ const Show = ({ Weather }) => {
                 </Card.Header>
 
                 <Card.Text>
-                    <div style={{ display: 'flex', overflow: 'auto', width: '16rem', height: '7rem' }}>
+                    <div style={{ display: 'flex', overflow: 'auto', width: '16rem', height: '8rem', alignItems: 'center', justifyContent: 'center'}}>
                         {Weather.forecast.forecastday[0].hour.map((time, index) => {
-
-                            return <p style={{ display: 'flex', gap: '15px', alignItems: 'center' }} key={index}>&nbsp;&nbsp; {time.temp_c}&nbsp;&nbsp;<img key={index} src={time.condition.icon} alt='icon' />&nbsp;&nbsp;{time.condition.text} </p>
+                           if( parseInt(moment(time.time).format('HH')) >= parseInt(currentDateTime.format('HH')))
+                           {
+                            return <p style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }} key={index}>
+                            {
+                            moment(time.time).format('hh') == currentDateTime.format('hh') ? 'Now' : hour(time.time)}
+                            <img key={index} src={time.condition.icon} alt='icon' style={{width: '3rem'}} />
+                            &nbsp;&nbsp; {time.temp_c.toFixed(0)}
+                            
+                        </p>
+                           }
+                            
 
                         })}  </div>
                     <p className='date'>{ CurrentDate() }</p>
