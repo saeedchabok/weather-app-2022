@@ -20,7 +20,7 @@ const Show = ({ Weather }) => {
     console.log('ggg',hour(new Date()))
     return (
         <Container>
-        <Card style={{ width: '18rem', height: '48.5rem' }}>
+        <Card style={{ width: '19rem', height: '48.5rem' }}>
             <Card.Body>
                 <Card.Header>
                     <Card.Title>
@@ -42,22 +42,23 @@ const Show = ({ Weather }) => {
                         </div>
                     </Card.Title>
                 </Card.Header>
-
                 <Card.Text>
-                    <div style={{ display: 'flex', overflow: 'auto', width: '16rem', height: '8rem', alignItems: 'center', justifyContent: 'center'}}>
-                        {Weather.forecast.forecastday[0].hour.map((time, index) => {
-                           if( parseInt(moment(time.time).format('HH')) >= parseInt(currentDateTime.format('HH')))
+                    <div style={{ display: 'flex', overflow: 'auto', width: '17rem', height: '8rem', alignItems: 'center', justifyContent: 'start'}}>
+                        {Weather.forecast.forecastday[0].hour.map((time, index) => 
+                        {
+                           if( parseInt(moment(time.time).format('HH'))   >= parseInt(currentDateTime.format('HH')))
                            {
-                            return <p style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }} key={index}>
+                            return (<p style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }} key={index}>
                             {
-                            moment(time.time).format('hh') == currentDateTime.format('hh') ? 'Now' : hour(time.time)}
+                            parseInt(moment(time.time).format('HH')) === parseInt(currentDateTime.format('HH')) ? 'Now' : hour(time.time)}
                             <img key={index} src={time.condition.icon} alt='icon' style={{width: '3rem'}} />
                             &nbsp;&nbsp; {time.temp_c.toFixed(0)}
-                            
-                        </p>
+                            </p>)
                            }
-                            
-
+                           else
+                           {
+                              return null 
+                           }
                         })}  </div>
                     <p className='date'>{ CurrentDate() }</p>
                     <div className='info'>
@@ -106,7 +107,8 @@ const Show = ({ Weather }) => {
                 </Card.Text>
             </Card.Body>
         </Card>
-        </Container>);
+        </Container>
+    );
 };
 
 export default Show;
