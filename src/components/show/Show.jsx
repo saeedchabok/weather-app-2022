@@ -20,9 +20,9 @@ const Show = ({ Weather }) => {
     console.log('ggg',hour(new Date()))
     return (
         <Container>
-        <Card style={{ width: '19rem', height: '48.5rem' }}>
+        <Card style={{ width: '19rem', height: '48.5rem', backgroundColor: 'lightgray' }}>
             <Card.Body>
-                <Card.Header>
+                <Card.Header style={{backgroundColor: '#B6B6B6'}}>
                     <Card.Title>
                         <div className='styleMainCardTitle'>
                         <span>
